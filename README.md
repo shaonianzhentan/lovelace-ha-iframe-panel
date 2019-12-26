@@ -3,7 +3,7 @@
 
 ```
 
-# 自定义面板
+# 自定义面板（三种设置模式）
 panel_custom:
   # 普通页面（和HA里的panel_iframe功能一样）
   - name: ha-iframe-panel
@@ -13,6 +13,7 @@ panel_custom:
     js_url: /local/ha-iframe-panel.js
     config:
       url: https://github.com/shaonianzhentan/lovelace-ha-iframe-panel
+
   # 全屏页面（隐藏头部）
   # fullscreen 设置为 true
   - name: ha-iframe-panel
@@ -23,6 +24,7 @@ panel_custom:
     config:
       url: https://github.com/shaonianzhentan/lovelace-ha-iframe-panel
       fullscreen: true
+
   # 打开新页面（浏览器新开一个选项卡）
   # blank 设置为 true
   - name: ha-iframe-panel
