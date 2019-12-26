@@ -1,12 +1,11 @@
 # lovelace-ha-iframe-panel
 一个在HA里使用的侧边栏iframe面板
 
-
-##　使用方式（使用HACS安装）
+## 使用方式（使用HACS安装）
 
 懒得介绍，自己去找
 
-##　使用方式（下载安装）
+## 使用方式（下载安装）
 将ha-iframe-panel.js放到HA的www目录下
 
 在配置里添加以下内容，即可看到效果，OK后自行修改对应参数
