@@ -20,7 +20,7 @@ panel_custom:
     sidebar_icon: mdi:react
     js_url: /local/ha-iframe-panel.js
     config:
-      url: https://github.com/shaonianzhentan/lovelace-ha-iframe-panel
+      url: https://demo.home-assistant.io/
 
   # 全屏页面（隐藏头部）
   # fullscreen 设置为 true
@@ -30,7 +30,7 @@ panel_custom:
     sidebar_icon: mdi:react
     js_url: /local/ha-iframe-panel.js
     config:
-      url: https://github.com/shaonianzhentan/lovelace-ha-iframe-panel
+      url: https://demo.home-assistant.io/
       fullscreen: true
 
   # 打开新页面（浏览器新开一个选项卡）
@@ -41,7 +41,7 @@ panel_custom:
     sidebar_icon: mdi:react
     js_url: /local/ha-iframe-panel.js
     config:
-      url: https://github.com/shaonianzhentan/lovelace-ha-iframe-panel
+      url: https://demo.home-assistant.io/
       blank: true
 
 ```
