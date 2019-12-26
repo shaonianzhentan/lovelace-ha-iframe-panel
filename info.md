@@ -9,7 +9,7 @@ panel_custom:
     url_path: ha-iframe-panel-1
     sidebar_title: 普通页面
     sidebar_icon: mdi:react
-    js_url: /local/ha-iframe-panel.js
+    js_url: /community_plugin/lovelace-ha-iframe-panel/ha-iframe-panel.js
     config:
       url: https://github.com/shaonianzhentan/lovelace-ha-iframe-panel
 
@@ -19,7 +19,7 @@ panel_custom:
     url_path: ha-iframe-panel-2
     sidebar_title: 全屏页面
     sidebar_icon: mdi:react
-    js_url: /local/ha-iframe-panel.js
+    js_url: /community_plugin/lovelace-ha-iframe-panel/ha-iframe-panel.js
     config:
       url: https://github.com/shaonianzhentan/lovelace-ha-iframe-panel
       fullscreen: true
@@ -30,7 +30,7 @@ panel_custom:
     url_path: ha-iframe-panel-3
     sidebar_title: 打开新页面
     sidebar_icon: mdi:react
-    js_url: /local/ha-iframe-panel.js
+    js_url: /community_plugin/lovelace-ha-iframe-panel/ha-iframe-panel.js
     config:
       url: https://github.com/shaonianzhentan/lovelace-ha-iframe-panel
       blank: true
