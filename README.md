@@ -11,7 +11,7 @@
 在配置里添加以下内容，即可看到效果，OK后自行修改对应参数
 ```
 
-# 自定义面板（三种设置模式）
+# 自定义面板（四种设置模式）
 panel_custom:
   # 普通页面（和HA里的panel_iframe功能一样）
   - name: ha-iframe-panel
@@ -44,4 +44,14 @@ panel_custom:
       url: https://demo.home-assistant.io/
       blank: true
 
+  # 打开HA系统页面
+  # hass 设置为 true
+  - name: ha-iframe-panel
+    url_path: ha-iframe-panel-4
+    sidebar_title: 系统集成页面
+    sidebar_icon: mdi:react
+    js_url: /local/ha-iframe-panel.js
+    config:
+      url: /config/integrations/dashboard
+      hass: true
 ```

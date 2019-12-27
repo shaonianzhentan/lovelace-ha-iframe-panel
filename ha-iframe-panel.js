@@ -2,11 +2,12 @@
  * 
  * 作者QQ：635147515
  * 日期：2019-12-26
- * 版本：1.0
+ * 版本：1.1
  * 功能：
  *      1. 在HA里打开新页面
  *      2. 在HA里全屏显示页面
  *      3. 在HA里打开页面
+ *      4. 在HA里打开系统内置页面
  */
 
 class HaIframePanel extends HTMLElement {
@@ -59,12 +60,20 @@ class HaIframePanel extends HTMLElement {
         this.init(value.config)
     }
 
-    init({ url, fullscreen, blank }) {
+    init({ url, fullscreen, blank, hass }) {
         const { shadow } = this
 
         if (blank) {
             window.open(url)
             history.back()
+            return
+        }
+        if (hass) {
+            document.querySelector('home-assistant')._route = {
+                prefix: '',
+                path: url,
+                __queryParams: {}
+            }
             return
         }
 
@@ -85,7 +94,7 @@ class HaIframePanel extends HTMLElement {
         iframe.src = url
     }
 
-    set narrow(value){
+    set narrow(value) {
         let menuButton = this.shadow.querySelector('ha-menu-button')
         menuButton.hass = this.hass
         menuButton.narrow = value
