@@ -35,7 +35,7 @@ panel_custom:
       url: https://demo.home-assistant.io/
       blank: true
 
-  # 打开HA系统页面
+  # 打开HA系统页面（不要前面的域名和端口的URL地址）
   # hass 设置为 true
   - name: ha-iframe-panel
     url_path: ha-iframe-panel-4
