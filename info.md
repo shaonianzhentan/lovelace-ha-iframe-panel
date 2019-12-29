@@ -2,7 +2,7 @@
 
 ```
 
-# 自定义面板（四种设置模式）
+# 自定义面板
 panel_custom:
   # 普通页面（和HA里的panel_iframe功能一样）
   - name: ha-iframe-panel
@@ -45,4 +45,17 @@ panel_custom:
     config:
       url: /config/integrations/dashboard
       hass: true
+
+  # 选项卡页面
+  - name: ha-iframe-panel
+    url_path: ha-iframe-panel-5
+    sidebar_title: TAB页面
+    sidebar_icon: mdi:react
+    js_url: /community_plugin/lovelace-ha-iframe-panel/ha-iframe-panel.js
+    config:
+      list:
+        - name: 第一个页面
+          url: /config/integrations/dashboard
+        - name: 第二个页面
+          url: https://demo.home-assistant.io/
 ```

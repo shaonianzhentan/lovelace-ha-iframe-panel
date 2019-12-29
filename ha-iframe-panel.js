@@ -2,12 +2,8 @@
  * 
  * 作者QQ：635147515
  * 日期：2019-12-26
- * 版本：1.1
- * 功能：
- *      1. 在HA里打开新页面
- *      2. 在HA里全屏显示页面
- *      3. 在HA里打开页面
- *      4. 在HA里打开系统内置页面
+ * 版本：1.2
+ * 项目地址：https://github.com/shaonianzhentan/lovelace-ha-iframe-panel
  */
 
 class HaIframePanel extends HTMLElement {
@@ -17,8 +13,10 @@ class HaIframePanel extends HTMLElement {
         const div = document.createElement('div');
         div.className = 'ha-iframe-panel'
         div.innerHTML = `
-            <app-toolbar>
-            </app-toolbar>
+            <div class="header">
+                <app-toolbar>
+                </app-toolbar>
+            </div>
             <iframe></iframe>
         `
         shadow.appendChild(div)
@@ -40,7 +38,18 @@ class HaIframePanel extends HTMLElement {
 
             .ha-iframe-panel.fullscreen app-toolbar{display:none;}
             .ha-iframe-panel.fullscreen iframe{height:100vh;}
+            .hide{display:none;}
 
+            .tabs{       
+                position: relative;
+                margin-top: -64px;
+                left: 60px;
+                height: 64px;
+                line-height: 64px;
+                font-size: 18px;
+                color:#d6edfd;display: flex;}
+            .tabs div{display:inline-block;padding:0 10px;cursor:pointer;white-space: nowrap;}
+            .tabs div.active{color:white;}
         `
         shadow.appendChild(style);
 
@@ -56,13 +65,35 @@ class HaIframePanel extends HTMLElement {
     set panel(value) {
         this._panel = value
 
-        this.setTitle(value.title)
-        this.init(value.config)
+        this.init(value.config, value.title)
     }
 
-    init({ url, fullscreen, blank, hass }) {
+    init({ url, fullscreen, blank, hass, list }, title) {
         const { shadow } = this
+        if (Array.isArray(list)) {
+            this.setTitle('')
 
+            let tabs = document.createElement('div')
+            tabs.className = 'tabs'
+            list.forEach(ele => {
+                let tab = document.createElement('div')
+                tab.textContent = ele.name
+                tab.dataset['url'] = ele.url
+                tab.onclick = function () {
+                    let ac = shadow.querySelector('.tabs div.active')
+                    ac && ac.classList.remove('active')
+                    this.classList.add('active')
+                    shadow.querySelector('iframe').src = this.dataset['url']
+                }
+                tabs.appendChild(tab)
+            })
+
+            let header = shadow.querySelector('.header')
+            header.appendChild(tabs)
+
+            return
+        }
+        this.setTitle(title)
         if (blank) {
             window.open(url)
             history.back()
