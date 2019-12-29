@@ -65,6 +65,8 @@ panel_custom:
       list:
         - name: 第一个页面
           url: /config/integrations/dashboard
+          icon: mdi:react
         - name: 第二个页面
+          icon: mdi:react
           url: https://demo.home-assistant.io/
 ```
