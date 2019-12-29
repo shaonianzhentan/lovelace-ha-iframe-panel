@@ -48,7 +48,10 @@ class HaIframePanel extends HTMLElement {
                 line-height: 64px;
                 font-size: 18px;
                 color:#d6edfd;display: flex;}
-            .tabs div{display:inline-block;padding:0 10px;cursor:pointer;white-space: nowrap;}
+            .tabs div{display: flex;
+                align-items: center;
+                padding:0 10px;cursor:pointer;white-space: nowrap;}
+            .tabs div ha-icon{margin-right:5px;}
             .tabs div.active{color:white;}
         `
         shadow.appendChild(style);
@@ -75,15 +78,19 @@ class HaIframePanel extends HTMLElement {
 
             let tabs = document.createElement('div')
             tabs.className = 'tabs'
-            list.forEach(ele => {
+            list.forEach((ele, index) => {
                 let tab = document.createElement('div')
-                tab.textContent = ele.name
+                tab.innerHTML = `<ha-icon icon="${ele.icon}"></ha-icon>${ele.name}`
                 tab.dataset['url'] = ele.url
                 tab.onclick = function () {
                     let ac = shadow.querySelector('.tabs div.active')
                     ac && ac.classList.remove('active')
                     this.classList.add('active')
                     shadow.querySelector('iframe').src = this.dataset['url']
+                }
+                if (index === 0) {
+                    tab.className = 'active'
+                    shadow.querySelector('iframe').src = ele.url
                 }
                 tabs.appendChild(tab)
             })
